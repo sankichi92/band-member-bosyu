@@ -3,6 +3,13 @@
 <section class="card mb-3">
   <div class="card-body">
     <h1 class="card-title h3"><%= @song.title %></h1>
+    <p class="card-text">
+      <% if @song.closed? %>
+        <span class="badge badge-secondary">募集終了</span>
+      <% else %>
+        <span class="badge badge-primary">募集中</span>
+      <% end %>
+    </p>
     <dl>
       <dt><%= Song.human_attribute_name(:user) %></dt>
       <dd><%= link_to @song.user.year_and_name, livelog_member_url(@song.user) %></dd>

@@ -4,6 +4,7 @@ create_table :songs, force: :cascade do |t|
   t.string :artist
   t.string :url
   t.text :notes
+  t.boolean :closed, null: false, default: false
 
   t.timestamps
 

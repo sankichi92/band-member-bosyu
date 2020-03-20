@@ -24,5 +24,10 @@
     </small>
   </div>
 
+  <div class="form-check mb-3">
+    <%= form.check_box :closed, class: 'form-check-input' %>
+    <%= form.label :closed, class: 'form-check-label' %>
+  </div>
+
   <%= form.submit class: 'btn btn-primary' %>
 <% end %>
