@@ -36,8 +36,11 @@ class SongsController < ApplicationController
   end
 
   def destroy
-    @song.destroy!
-    redirect_to root_path, notice: "#{@song.title} を削除しました"
+    if @song.destroy
+      redirect_to root_path, notice: "#{@song.title} を削除しました"
+    else
+      redirect_to @song, alert: @song.errors.full_messages.join(' / ')
+    end
   end
 
   private

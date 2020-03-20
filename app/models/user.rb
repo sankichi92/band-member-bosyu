@@ -2,6 +2,7 @@ require 'app_auth0_client'
 
 class User < ApplicationRecord
   has_many :songs, dependent: :restrict_with_exception
+  has_many :plays, dependent: :restrict_with_exception
 
   def fetch_auth0_user_and_save!
     auth0_user = AppAuth0Client.instance.user(auth0_id)

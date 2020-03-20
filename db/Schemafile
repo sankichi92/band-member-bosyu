@@ -1,4 +1,16 @@
-create_table :songs, force: :cascade do |t|
+create_table :plays do |t|
+  t.bigint :song_id, null: false
+  t.bigint :user_id, null: false
+  t.string :instrument
+  t.text :comment
+
+  t.timestamps
+
+  t.index %i[song_id user_id], unique: true
+  t.index :user_id
+end
+
+create_table :songs do |t|
   t.bigint :user_id, null: false
   t.string :name, null: false
   t.string :artist
