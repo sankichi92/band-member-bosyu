@@ -12,6 +12,13 @@
       提案: <%= song.user.year_and_name %>
     </div>
     <%= simple_format song.notes, class: 'card-text mb-2' %>
+    <% unless song.users.empty? %>
+      <ul class="card-text list-inline text-muted mb-2">
+        <% song.users.each do |user| %>
+          <li class="list-inline-item">✋<%= user.year_and_name %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <p class="card-text text-muted">
       <small><%= l song.created_at, format: :short %> 作成</small>
     </p>
