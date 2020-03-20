@@ -27,5 +27,8 @@
 yarn-debug.log*
 .yarn-integrity
 
+# dotenv
+.env
+
 # RuboCop remote config cache
 .rubocop-https---raw-githubusercontent-com-cookpad-styleguide-master--rubocop-yml
