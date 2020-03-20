@@ -12,4 +12,8 @@ class User < ApplicationRecord
     )
     save!
   end
+
+  def year_and_name
+    "#{joined_year} #{name}"
+  end
 end

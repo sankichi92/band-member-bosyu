@@ -2,6 +2,10 @@ class SongsController < ApplicationController
   before_action :require_current_user, only: %i[new create]
 
   def index
+    @songs = Song.all.reverse_order
+  end
+
+  def show
   end
 
   def new
