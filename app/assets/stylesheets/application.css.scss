@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+$enable-responsive-font-sizes: true;
+
+@import "bootstrap/scss/bootstrap";
