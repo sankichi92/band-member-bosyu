@@ -11,4 +11,8 @@ class Song < ApplicationRecord
       name
     end
   end
+
+  def owner?(user)
+    self.user == user
+  end
 end

@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
-  before_action :require_current_user, only: %i[new create]
+  before_action :require_current_user, only: %i[new create edit update destroy]
+  before_action :require_song_owner, only: %i[edit update destroy]
 
   def index
     @songs = Song.all.reverse_order
@@ -23,7 +24,28 @@ class SongsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @song.update(song_params)
+      redirect_to @song, notice: '更新しました'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @song.destroy!
+    redirect_to root_path, notice: "#{@song.title} を削除しました"
+  end
+
   private
+
+  def require_song_owner
+    @song = Song.find(params[:id])
+    redirect_to @song, alert: '権限がありません' unless @song.owner?(current_user)
+  end
 
   def song_params
     params.require(:song).permit(:name, :artist, :url, :notes)

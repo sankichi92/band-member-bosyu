@@ -15,5 +15,9 @@
       <dt><%= Song.human_attribute_name(:updated_at) %></dt>
       <dd><%= l @song.updated_at %></dd>
     </dl>
+    <% if @song.owner?(current_user) %>
+      <%= link_to '編集する', edit_song_path(@song), class: 'card-link btn btn-primary' %>
+      <%= link_to '削除する', song_path(@song), method: :delete, class: 'card-link btn btn-danger', data: { confirm: '本当に削除しますか？' } %>
+    <% end %>
   </div>
 </section>
