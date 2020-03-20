@@ -16,10 +16,34 @@
     <nav class="navbar navbar-expand navbar-light bg-light mb-3">
       <div class="container">
         <%= link_to t('app.title'), root_path, class: 'navbar-brand' %>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <% if current_user %>
+                <%= current_user.name %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
-    <main class="container">
-      <%= yield %>
-    </main>
+
+    <div class="container">
+      <% if flash.notice %>
+        <aside class="alert alert-primary" role="alert">
+          <%= flash.notice %>
+        </aside>
+      <% end %>
+      <% if flash.alert %>
+        <aside class="alert alert-danger" role="alert">
+          <%= flash.alert %>
+        </aside>
+      <% end %>
+
+      <main>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
