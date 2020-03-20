@@ -14,6 +14,8 @@ gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 
+gem 'rails-i18n'
+
 gem 'ridgepole', require: false
 
 gem 'omniauth-auth0'
