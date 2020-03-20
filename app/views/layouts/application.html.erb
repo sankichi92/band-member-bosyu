@@ -27,15 +27,15 @@
             </li>
           </ul>
 
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <% if current_user %>
+          <% if current_user %>
+            <ul class="navbar-nav">
+              <li class="nav-item">
                 <%= link_to current_user.name, livelog_member_url(current_user), class: 'nav-link' %>
-              <% else %>
-                <%= link_to 'ログイン', login_path, class: 'nav-link' %>
-              <% end %>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          <% else %>
+            <%= link_to 'ログイン', '/auth/auth0', method: :post, class: 'btn btn-outline-primary' %>
+          <% end %>
         </div>
       </div>
     </nav>
