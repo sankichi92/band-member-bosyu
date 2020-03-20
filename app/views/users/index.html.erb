@@ -11,14 +11,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <% @users.each do |user| %>
+      <% @users.each do |user| %>
+        <tr>
           <td><%= user.joined_year %></td>
           <td><%= user.name %></td>
           <td><%= link_to livelog_member_url(user), livelog_member_url(user) %></td>
           <td><%= l user.created_at %></td>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
