@@ -1,2 +1,19 @@
-<h1>Songs#show</h1>
-<p>Find me in app/views/songs/show.html.erb</p>
+<% provide :title, @song.title %>
+
+<section class="card mb-3">
+  <div class="card-body">
+    <h1 class="card-title h3"><%= @song.title %></h1>
+    <dl>
+      <dt><%= Song.human_attribute_name(:user) %></dt>
+      <dd><%= link_to @song.user.year_and_name, livelog_member_url(@song.user) %></dd>
+      <dt><%= Song.human_attribute_name(:url) %></dt>
+      <dd><%= link_to link_to @song.url, @song.url, target: '_blank' %></dd>
+      <dt><%= Song.human_attribute_name(:notes) %></dt>
+      <dd><%= simple_format @song.notes %></dd>
+      <dt><%= Song.human_attribute_name(:created_at) %></dt>
+      <dd><%= l @song.created_at %></dd>
+      <dt><%= Song.human_attribute_name(:updated_at) %></dt>
+      <dd><%= l @song.updated_at %></dd>
+    </dl>
+  </div>
+</section>

@@ -36,9 +36,13 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M"
       short: "%-m/%-d %-H:%M"
+  attributes:
+    created_at: 作成日時
+    updated_at: 更新日時
   activerecord:
     attributes:
       song:
+        user: 提案者
         name: 曲名
         artist: アーティスト
         url: 参考URL
