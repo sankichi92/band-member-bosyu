@@ -1,0 +1,10 @@
+create_table :users do |t|
+  t.string :auth0_id, null: false
+  t.string :name, null: false
+  t.integer :joined_year, null: false
+  t.integer :livelog_member_id, null: false
+
+  t.timestamps
+
+  t.index :auth0_id, unique: true
+end
