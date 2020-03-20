@@ -1,3 +1,15 @@
+create_table :songs, force: :cascade do |t|
+  t.bigint :user_id, null: false
+  t.string :name, null: false
+  t.string :artist
+  t.string :url
+  t.text :notes
+
+  t.timestamps
+
+  t.index :user_id
+end
+
 create_table :users do |t|
   t.string :auth0_id, null: false
   t.string :name, null: false
