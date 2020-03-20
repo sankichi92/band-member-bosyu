@@ -35,3 +35,10 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d %H:%M"
+  activerecord:
+    attributes:
+      song:
+        name: 曲名
+        artist: アーティスト
+        url: 参考URL
+        notes: 備考
