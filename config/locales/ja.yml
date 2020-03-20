@@ -48,3 +48,6 @@ ja:
         url: 参考URL
         notes: 備考
         closed: 募集終了
+      play:
+        instrument: 楽器
+        comment: コメント

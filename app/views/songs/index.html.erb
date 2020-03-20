@@ -4,24 +4,4 @@
   <%= link_to '曲を追加する', new_song_path, class: 'btn btn-primary btn-lg' %>
 </div>
 
-<% @songs.each do |song| %>
-  <section class="card mb-3">
-    <div class="card-body">
-      <h2 class="card-title h5">
-        <%= link_to song.title, song, class: 'stretched-link text-dark' %>
-        <% if song.closed? %>
-          <span class="badge badge-secondary">募集終了</span>
-        <% else %>
-          <span class="badge badge-primary">募集中</span>
-        <% end %>
-      </h2>
-      <div class="card-subtitle text-muted mb-2">
-        提案: <%= song.user.year_and_name %>
-      </div>
-      <%= simple_format song.notes, class: 'card-text' %>
-      <p class="card-text text-muted">
-        <small><%= l song.created_at, format: :short %> 作成</small>
-      </p>
-    </div>
-  </section>
-<% end %>
+<%= render @songs %>

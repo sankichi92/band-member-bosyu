@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'auth/auth0/callback' => 'auth0#callback'
   get 'auth/failure' => 'auth0#failure'
 
-  resources :songs, except: :index
+  resources :songs, except: :index do
+    resources :plays, only: %i[new create edit update destroy]
+  end
 
   resources :users, only: :index
 

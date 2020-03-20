@@ -16,4 +16,8 @@ class Song < ApplicationRecord
   def owner?(user)
     self.user == user
   end
+
+  def player?(user)
+    plays.map(&:user_id).include?(user&.id)
+  end
 end

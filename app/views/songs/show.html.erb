@@ -28,3 +28,17 @@
     <% end %>
   </div>
 </section>
+
+<% if !@song.closed? && !@song.player?(current_user) %>
+  <div class="text-center mb-3">
+    <%= link_to '参加する', new_song_play_path(@song), class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
+
+<% unless @song.plays.empty? %>
+  <section>
+    <ul class="list-group">
+      <%= render @song.plays %>
+    </ul>
+  </section>
+<% end %>
