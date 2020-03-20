@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BandMemberBosyu</title>
+    <title><%= content_for(:title).presence || 'バンドメンバー募集' %></title>
     <meta name="robots" content="noindex">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand navbar-light bg-light mb-3">
+      <div class="container">
+        <%= link_to 'バンドメンバー募集', root_path, class: 'navbar-brand' %>
+      </div>
+    </nav>
+    <main class="container">
+      <%= yield %>
+    </main>
   </body>
 </html>
