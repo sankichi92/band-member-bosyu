@@ -13,28 +13,19 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+    <nav class="navbar navbar-expand navbar-light bg-light mb-3">
       <div class="container">
         <%= link_to t('app.title'), root_path, class: 'navbar-brand' %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="collapse navbar-collapse" id="navbar-content">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <%= link_to 'ユーザー', users_path, class: 'nav-link' %>
-            </li>
-          </ul>
-
           <% if current_user %>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <%= link_to current_user.name, livelog_member_url(current_user), class: 'nav-link' %>
               </li>
             </ul>
           <% else %>
-            <%= link_to 'ログイン', '/auth/auth0', method: :post, class: 'btn btn-outline-primary' %>
+            <%= link_to 'ログイン', '/auth/auth0', method: :post, class: 'btn btn-outline-primary ml-auto' %>
           <% end %>
         </div>
       </div>
