@@ -3,7 +3,7 @@
     ✋<%= link_to play.user.year_and_name, livelog_member_url(play.user), class: 'text-dark' %>
     <span class="badge badge-secondary"><%= play.instrument %></span>
   </h3>
-  <p class="text-muted mb-2"><%= play.comment %></p>
+  <%= simple_format play.comment, class: 'text-muted mb-2' %>
   <div class="d-flex justify-content-between">
     <small class="text-muted"><%= l play.created_at, format: :short %></small>
     <% if play.owner?(current_user) %>
