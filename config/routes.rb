@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  root 'auth0#login'
+  root 'songs#index'
+  get 'login' => 'auth0#login'
   get 'auth/auth0/callback' => 'auth0#callback'
   get 'auth/failure' => 'auth0#failure'
 
+  resources :songs, except: :index
+
   resources :users, only: :index
 
-  direct :livelog_member do |livelog_member_id|
-    "https://livelog.ku-unplugged.net/members/#{livelog_member_id}"
+  direct :livelog_member do |user|
+    "https://livelog.ku-unplugged.net/members/#{user.livelog_member_id}"
   end
 end
