@@ -3,24 +3,24 @@
 
   <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, class: 'form-control', required: true %>
+    <%= form.text_field :name, class: 'form-control', required: true, placeholder: 'Layla' %>
   </div>
 
   <div class="form-group">
     <%= form.label :artist %>
-    <%= form.text_field :artist, class: 'form-control' %>
+    <%= form.text_field :artist, class: 'form-control', placeholder: 'Eric Clapton' %>
   </div>
 
   <div class="form-group">
     <%= form.label :url %>
-    <%= form.url_field :url, class: 'form-control' %>
+    <%= form.url_field :url, class: 'form-control', placeholder: 'https://www.youtube.com/watch?v=sQ5idZHWVn4' %>
   </div>
 
   <div class="form-group">
     <%= form.label :notes %>
     <%= form.text_area :notes, class: 'form-control' %>
     <small class="form-text text-muted">
-      想定している楽器編成やアレンジ、Key などを入力してください。
+      すでに決まっているメンバーや足りない楽器、想定しているアレンジ、Key などを入力してください。
     </small>
   </div>
 
@@ -30,4 +30,7 @@
   </div>
 
   <%= form.submit class: 'btn btn-primary' %>
+  <small class="form-text text-muted">
+    あとから編集・削除できるので、気軽に登録してください。
+  </small>
 <% end %>
